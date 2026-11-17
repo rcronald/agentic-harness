@@ -1,0 +1,25 @@
+# Valida que el título del PR (que será el commit de main tras el squash) y la rama sigan
+# las convenciones de CONTRIBUTING.md. Se repite al editar el título.
+name: pr-convenciones
+
+on:
+  pull_request:
+    types: [opened, edited, synchronize, reopened]
+
+permissions:
+  contents: read
+
+jobs:
+  convenciones:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v7
+      - name: Título del PR
+        env:
+          TITLE: ${{ github.event.pull_request.title }}
+        run: bash scripts/check-conventions.sh title "$TITLE"
+      - name: Nombre de la rama
+        env:
+          BRANCH: ${{ github.head_ref }}
+        run: bash scripts/check-conventions.sh branch "$BRANCH"
