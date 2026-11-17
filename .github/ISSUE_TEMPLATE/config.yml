@@ -1,0 +1,8 @@
+blank_issues_enabled: true
+contact_links:
+  - name: Reportar una vulnerabilidad
+    url: https://github.com/rcronald/agentic-harness/security/advisories/new
+    about: Las vulnerabilidades se reportan en privado, nunca en un issue público.
+  - name: Guía de uso
+    url: https://github.com/rcronald/agentic-harness/blob/main/docs/guia-de-uso.md
+    about: Instalación, configuración y problemas frecuentes.

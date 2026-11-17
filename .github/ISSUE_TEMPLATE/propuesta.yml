@@ -1,0 +1,40 @@
+name: Propuesta
+description: Una función, skill o cambio nuevo.
+title: "[Propuesta] "
+labels: ["enhancement", "needs-triage"]
+body:
+  - type: textarea
+    id: problema
+    attributes:
+      label: Problema
+      description: Qué necesitas hacer y por qué hoy no se puede o cuesta. Describe el problema, no la solución.
+    validations:
+      required: true
+  - type: textarea
+    id: propuesta
+    attributes:
+      label: Propuesta
+      description: Cómo lo resolverías. Si afecta al esqueleto, di qué módulos cambian.
+    validations:
+      required: true
+  - type: textarea
+    id: alternativas
+    attributes:
+      label: Alternativas consideradas
+  - type: dropdown
+    id: compatibilidad
+    attributes:
+      label: ¿Rompe compatibilidad?
+      description: Por ejemplo, renombrar una skill, cambiar la estructura de agents/<nombre>/ o una variable de entorno.
+      options:
+        - "No"
+        - "Sí"
+        - No lo sé
+    validations:
+      required: true
+  - type: checkboxes
+    id: contribuir
+    attributes:
+      label: Contribución
+      options:
+        - label: Me gustaría implementarlo yo (ver CONTRIBUTING.md)

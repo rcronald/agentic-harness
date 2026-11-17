@@ -131,6 +131,14 @@ Para otro proveedor de CI basta con ejecutar el mismo script.
 
 Añade una regla en `templates/project/.claude/rules/` y una skill de despliegue en `skills/`. `templates/project/.claude/rules/deployment.md` indica qué mantiene hoy el código portable.
 
+## Documentación
+
+| Documento | Para quién |
+|---|---|
+| [Guía de uso](docs/guia-de-uso.md) | Quien quiere crear y operar agentes con el plugin: instalación, primer agente, configuración, ejecución, evaluación, despliegue y problemas frecuentes |
+| [CONTRIBUTING.md](CONTRIBUTING.md) | Quien quiere mejorar el plugin: entorno, issues, ramas, commits, PR y releases |
+| [CHANGELOG.md](CHANGELOG.md) | Qué cambia en cada versión y cómo aplicarlo a agentes existentes |
+
 ## Versiones
 
 Versionado semántico; los cambios de cada versión y cómo aplicarlos a agentes existentes están en [CHANGELOG.md](CHANGELOG.md). El criterio está en [CLAUDE.md](CLAUDE.md#versiones-y-publicación).
