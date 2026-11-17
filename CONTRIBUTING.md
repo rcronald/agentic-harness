@@ -98,11 +98,19 @@ Un buen issue:
 
 Etiquetas:
 
-| Tipo | Área | Estado |
-|---|---|---|
-| `bug`, `enhancement`, `documentation`, `question` | `area:skills`, `area:subagentes`, `area:hooks`, `area:esqueleto`, `area:plantillas`, `area:ci` | `needs-triage`, `good first issue`, `help wanted`, `breaking-change` |
+| Tipo | Área | Prioridad | Estado |
+|---|---|---|---|
+| `bug`, `enhancement`, `documentation`, `question` | `area:skills`, `area:subagentes`, `area:hooks`, `area:esqueleto`, `area:plantillas`, `area:ci` | `prioridad:alta`, `prioridad:media`, `prioridad:baja` | `needs-triage`, `good first issue`, `help wanted`, `breaking-change` |
 
-Los issues nuevos entran con `needs-triage`. Al revisarlos se añaden tipo y área, y se quita `needs-triage`. Un PR cierra su issue con `Closes #<número>` en la descripción.
+Prioridades:
+
+| Prioridad | Cuándo |
+|---|---|
+| `prioridad:alta` | Bloquea el uso en producción, da resultados incorrectos o pierde datos. Se atiende antes que cualquier otra cosa |
+| `prioridad:media` | Mejora importante o riesgo conocido, sin bloquear el uso |
+| `prioridad:baja` | Conveniente; cuando haya tiempo. Buen punto de entrada junto con `good first issue` |
+
+Los issues nuevos entran con `needs-triage`. Al revisarlos se añaden tipo, área y prioridad, y se quita `needs-triage`. Para elegir en qué trabajar, filtra por prioridad: [alta](https://github.com/rcronald/agentic-harness/issues?q=is%3Aopen+label%3Aprioridad%3Aalta), [media](https://github.com/rcronald/agentic-harness/issues?q=is%3Aopen+label%3Aprioridad%3Amedia), [baja](https://github.com/rcronald/agentic-harness/issues?q=is%3Aopen+label%3Aprioridad%3Abaja). Un PR cierra su issue con `Closes #<número>` en la descripción.
 
 ## 6. Ramas
 

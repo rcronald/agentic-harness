@@ -8,7 +8,7 @@ Cada versión indica si los proyectos o agentes ya creados tienen que hacer algo
 
 ### Documentación
 - Guía de uso (`docs/guia-de-uso.md`) para crear y operar agentes con el plugin.
-- `CONTRIBUTING.md` con el flujo de trabajo, issues, ramas, Conventional Commits, PR y releases.
+- `CONTRIBUTING.md` con el flujo de trabajo, issues y etiquetas (tipo, área, prioridad y estado), ramas, Conventional Commits, PR y releases.
 - Plantillas de issues (error, propuesta) y de PR.
 
 ### Añadido
