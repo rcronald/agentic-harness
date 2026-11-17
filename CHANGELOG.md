@@ -6,6 +6,15 @@ Cada versión indica si los proyectos o agentes ya creados tienen que hacer algo
 
 ## [Sin publicar]
 
+### Documentación
+- Guía de uso (`docs/guia-de-uso.md`) para crear y operar agentes con el plugin.
+- `CONTRIBUTING.md` con el flujo de trabajo, issues, ramas, Conventional Commits, PR y releases.
+- Plantillas de issues (error, propuesta) y de PR.
+
+### Añadido
+- `scripts/check-conventions.sh` valida títulos de PR, ramas y mensajes de commit; lo usa el workflow `pr-convenciones.yml`.
+- `scripts/install-git-hooks.sh` instala un hook `commit-msg` opcional.
+
 ## [1.0.0] - 2026-11-17
 
 Primera versión pública.
