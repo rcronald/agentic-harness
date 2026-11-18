@@ -51,6 +51,35 @@ check "post-edit: secreto incrustado" block post-edit.sh "$(file "$tmp/leak.py")
 check "post-edit: error de sintaxis"  block post-edit.sh "$(file "$tmp/bad.py")"
 check "post-edit: archivo correcto"   pass  post-edit.sh "$(file "$tmp/good.py")"
 
+# Con ambos ejecutables presentes, el hook usa la versión del proyecto.
+mkdir -p "$proj/.venv/bin" "$tmp/bin-ruff"
+export RUFF_TEST_LOG="$tmp/ruff.log"
+cat >"$proj/.venv/bin/ruff" <<'EOF'
+#!/bin/bash
+printf 'proyecto:%s\n' "$1" >>"$RUFF_TEST_LOG"
+EOF
+cat >"$tmp/bin-ruff/ruff" <<'EOF'
+#!/bin/bash
+printf 'global:%s\n' "$1" >>"$RUFF_TEST_LOG"
+EOF
+chmod +x "$proj/.venv/bin/ruff" "$tmp/bin-ruff/ruff"
+PATH="$tmp/bin-ruff:$PATH" check "post-edit: ruff del proyecto" pass post-edit.sh "$(file "$tmp/good.py")"
+if [ "$(cat "$RUFF_TEST_LOG")" = $'proyecto:format\nproyecto:check' ]; then
+  echo "ok    post-edit: prefiere ruff de .venv a ruff global"
+else
+  echo "FALLO post-edit: no priorizó ruff de .venv"
+  fails=$((fails + 1))
+fi
+mv "$proj/.venv/bin/ruff" "$proj/.venv/bin/ruff-disabled"
+: >"$RUFF_TEST_LOG"
+PATH="$tmp/bin-ruff:$PATH" check "post-edit: ruff global" pass post-edit.sh "$(file "$tmp/good.py")"
+if [ "$(cat "$RUFF_TEST_LOG")" = $'global:format\nglobal:check' ]; then
+  echo "ok    post-edit: usa ruff global si no hay ruff de .venv"
+else
+  echo "FALLO post-edit: no recurrió a ruff global"
+  fails=$((fails + 1))
+fi
+
 # Sin jq: respaldo con python3. Sin jq ni python3: bloquea (falla cerrado).
 mkbin() {  # mkbin <dir> <comandos…>: PATH mínimo con solo esos comandos
   local dir=$1; shift; mkdir -p "$dir"

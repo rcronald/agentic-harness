@@ -6,6 +6,10 @@ Cada versión indica si los proyectos o agentes ya creados tienen que hacer algo
 
 ## [Sin publicar]
 
+### Corregido
+
+- **PARCHE:** `post-edit` prefiere el Ruff de `.venv` al del `PATH` para respetar la versión del proyecto.
+
 ## [1.0.0] - 2026-11-17
 
 Primera versión pública.

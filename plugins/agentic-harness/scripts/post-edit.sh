@@ -21,8 +21,8 @@ fi
 is_harness_project || exit 0
 case "$path" in
   *.py)
-    if command -v ruff >/dev/null 2>&1; then RUFF=(ruff)
-    elif [ -x "${CLAUDE_PROJECT_DIR:-.}/.venv/bin/ruff" ]; then RUFF=("${CLAUDE_PROJECT_DIR:-.}/.venv/bin/ruff")
+    if [ -x "${CLAUDE_PROJECT_DIR:-.}/.venv/bin/ruff" ]; then RUFF=("${CLAUDE_PROJECT_DIR:-.}/.venv/bin/ruff")
+    elif command -v ruff >/dev/null 2>&1; then RUFF=(ruff)
     else
       if ! out=$(python3 -m py_compile "$path" 2>&1); then
         printf '%s\n' "$out" | head -20 >&2
